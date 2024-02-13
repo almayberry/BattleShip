@@ -1,0 +1,30 @@
+<style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+  }
+
+  td, th {
+    border: 2px solid #dddddd;
+    text-align: center;
+    height: 50px;
+    width: 50px;
+  }
+</style>
+
+<div>
+  <h3>Your Battleship Board</h3>
+
+  <table>
+    <tr>
+      <th></th>
+      <th *ngFor="let col of allCols">{{col}}</th>
+    </tr>
+    <tr *ngFor="let r of allCols; let row = index">
+      <td>{{row}}</td>
+
+      <td *ngFor="let col of allCols; let index = index"
+          (click)="this.gameService.placeCurrentShip(index, row)" [ngStyle]="{'background-color': this.getBackgroundColor(col, row.toString())}">{{displayValue(col, row.toString())}}</td>
+    </tr>
+  </table>
+</div>

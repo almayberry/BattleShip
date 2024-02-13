@@ -2,14 +2,10 @@
 <main class="main">
   <div class="content">
     <div>
-      <h1>Hello, {{ title }}</h1>
-      <opponents-board [board]="playerTwoBoard"></opponents-board>
+      <h1>{{ title }}</h1>
 
-      <two-peg-ship></two-peg-ship>
+      <game-setup></game-setup>
 
-      <button type="button" (click)="randomlyPlaceAllShips()">Randomize Ships</button>
-
-      <players-board #playersBoard [board]="playerOneBoard"></players-board>
     </div>
   </div>
 </main>

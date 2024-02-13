@@ -1,0 +1,19 @@
+<style>
+  .aircraft {
+    background-color: red;
+  }
+</style>
+
+<div>
+  <button type="button" (click)="this.gameService.randomlyPlaceAllShips()">Randomize Ships</button>
+
+  <button type="button" [style.background-color]="this.gameService.gameState.currentShip==ShipType.AIRCRAFT_CARRIER ? 'red' : 'white'"  (click)="setCurrentShip(ShipType.AIRCRAFT_CARRIER)">Place aircraft carrier</button>
+  <button type="button" [style.background-color]="this.gameService.gameState.currentShip==ShipType.BATTLESHIP ? 'blue' : 'white'" (click)="setCurrentShip(ShipType.BATTLESHIP)">Place battleship</button>
+  <button type="button" [style.background-color]="this.gameService.gameState.currentShip==ShipType.DESTROYER ? 'green' : 'white'" (click)="setCurrentShip(ShipType.DESTROYER)">Place destroyer</button>
+  <button type="button" [style.background-color]="this.gameService.gameState.currentShip==ShipType.SUBMARINE ? 'yellow' : 'white'" (click)="setCurrentShip(ShipType.SUBMARINE)">Place submarine</button>
+  <button type="button" [style.background-color]="this.gameService.gameState.currentShip==ShipType.CRUISER ? 'orange' : 'white'" (click)="setCurrentShip(ShipType.CRUISER)">Place crusier</button>
+  <mat-checkbox (click)="placementOrientation()">Place Horizontally</mat-checkbox>
+
+
+  <board #activePlayerBoard [board]="this.gameService.gameState.activePlayer.playerBoard"></board>
+</div>
