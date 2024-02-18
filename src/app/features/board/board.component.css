@@ -1,0 +1,16 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 2px solid #dddddd;
+  text-align: center;
+  height: 50px;
+  width: 50px;
+}
+
+.center {
+  display: flex;
+  justify-content: center
+}

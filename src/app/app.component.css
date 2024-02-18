@@ -10,3 +10,8 @@ main {
   position: relative;
 }
 
+.center {
+  display: flex;
+  justify-content: center
+}
+

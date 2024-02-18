@@ -1,11 +1,12 @@
-import {Component, Input} from "@angular/core";
+import {Component, Input, ViewChild} from "@angular/core";
 import {ColLetters, PlayerBoardModel} from "../../models/player-board.model";
 import {GameService} from "../../service/game.service";
 
 
 @Component({
   selector: 'board',
-  templateUrl: './board.component.html'
+  templateUrl: './board.component.html',
+  styleUrl: './board.component.css'
 })
 export class BoardComponent {
 

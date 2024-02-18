@@ -1,8 +1,6 @@
-import {Component, ViewChild} from "@angular/core";
-import {ColLetters, PlayerBoardModel, ShipType} from "../../models/player-board.model";
-import {PlayerModel} from "../../models/player.model";
+import {Component} from "@angular/core";
+import {ShipType} from "../../models/player-board.model";
 import {GameService} from "../../service/game.service";
-import {GameStateModel} from "../../models/game-state.model";
 
 @Component({
   selector: 'game-setup',
@@ -10,6 +8,7 @@ import {GameStateModel} from "../../models/game-state.model";
 })
 
 export class GameSetupComponent {
+
   constructor(public gameService: GameService) {
   }
 

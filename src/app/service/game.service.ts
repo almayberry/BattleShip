@@ -1,14 +1,20 @@
 import {Injectable} from "@angular/core";
 import {ColLetters, ShipType} from "../models/player-board.model";
 import {GameStateModel} from "../models/game-state.model";
+import {MatDialog} from "@angular/material/dialog";
+import {
+  ShipPlacementErrorModalComponent
+} from "../features/ship-placement-error-modal/ship-placement-error-modal.component";
+import {UserService} from "./userService";
 
 @Injectable()
 export class GameService {
 
   public gameState: GameStateModel
 
-  constructor() {
-    this.gameState = new GameStateModel("userOne")
+  constructor(public dialog: MatDialog) {
+    this.gameState = new GameStateModel(new UserService())
+
   }
 
   placeCurrentShip(col: number, row: number) {
@@ -18,7 +24,7 @@ export class GameService {
       this.gameState.activePlayer.playerBoard.removeAllByValue(this.gameState.currentShip)
       this.placeShip(this.gameState.isHorizontal, col, row, this.gameState.currentShip, size)
     } else {
-      // Display error (ship does not fit here)
+      this.dialog.open(ShipPlacementErrorModalComponent);
     }
   }
 
@@ -30,6 +36,10 @@ export class GameService {
     this.randomShipPlacement(ShipType.DESTROYER)
     this.randomShipPlacement(ShipType.SUBMARINE)
     this.randomShipPlacement(ShipType.CRUISER)
+  }
+
+  clearBoard() {
+    this.gameState.activePlayer.playerBoard.startingBoard();
   }
 
   randomShipPlacement(shipType: ShipType) {

@@ -1,7 +1,6 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {FeaturesModule} from "./features/features.module";
-import {GameService} from "./service/game.service";
 
 @Component({
   selector: 'app-root',
@@ -10,11 +9,8 @@ import {GameService} from "./service/game.service";
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
   title = 'BattleShip';
 
-  ngOnInit() {
-    new GameService()
-  }
 
 }
